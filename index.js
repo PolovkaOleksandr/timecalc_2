@@ -49,6 +49,11 @@ const p15=document.querySelector(".p15")
 const suma=document.querySelector(".suma")
 const inpdn=document.querySelector(".inpdn")
 const inpvur=document.querySelector(".inpvur")
+const zar=document.querySelector(".zar")
+const misyear=document.querySelector(".misyear")
+const datas=document.querySelector(".datas")
+
+
 
 const pm=[p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15,]
 
@@ -113,6 +118,7 @@ let days14=0
 let days15=0
 
 let prom=0
+misyear.value=12
 
 yearsm=[years1, years2, years3, years4, years5, years6, years7, years8, years9, years10, years11, years12, years13, years14, years15]
 monthsm=[months1, months2, months3, months4, months5, months6, months7, months8, months9, months10, months11, months12, months13, months14, months15]
@@ -123,67 +129,68 @@ daysm=[days1, days2, days3, days4, days5, days6, days7, days8, days9, days10, da
 function main() {
     const inputs1=[inp11, inp12, inp13, inp14, inp15, inp16, inp17, inp18, inp19, inp110, inp111, inp112, inp113, inp114, inp115]
     const inputs2=[inp21, inp22, inp23, inp24, inp25, inp26, inp27, inp28, inp29, inp210, inp211, inp212, inp213, inp214, inp215]
-    for (let i = 0; i < inputs1.length; i++) {
-        if (inputs1[i].value === "" || inputs2[i].value === "") {
-            daysm[i]=0
-            monthsm[i]=0
-            yearsm[i]=0
-            pm[i].textContent=`${daysm[i]} дн ${monthsm[i]} міс ${yearsm[i]} р`
-            continue
+    
+    if (datas.value==="") {
+        for (let i = 0; i < inputs1.length; i++) {
+            if (inputs1[i].value === "" || inputs2[i].value === "") {
+                daysm[i]=0
+                monthsm[i]=0
+                yearsm[i]=0
+                pm[i].textContent=`${daysm[i]} дн ${monthsm[i]} міс ${yearsm[i]} р`
+                continue
+            }
+            else{
+        let inv1 = inputs1[i].value.split('.').map(Number);
+        let inv2 = inputs2[i].value.split('.').map(Number);
+        
+        yearsm[i]=inv2[2]-inv1[2]
+        daysm[i]=inv2[0]-inv1[0]
+        if (daysm[i]<0){
+            monthsm[i]=monthsm[i]-1
+            daysm[i]=30+daysm[i]
         }
-        else{
-    let inv1 = inputs1[i].value.split('.').map(Number);
-    let inv2 = inputs2[i].value.split('.').map(Number);
+        monthsm[i]=inv2[1]-inv1[1]
+        if (monthsm[i]<0){
+            yearsm[i]=yearsm[i]-1
+            monthsm[i]=11+monthsm[i]
+        }
+        
+       
+        
+        
     
-    yearsm[i]=inv2[2]-inv1[2]
-    daysm[i]=inv2[0]-inv1[0]
-    if (daysm[i]<0){
-        monthsm[i]=monthsm[i]-1
-        daysm[i]=30+daysm[i]
-    }
-    monthsm[i]=inv2[1]-inv1[1]
-    if (monthsm[i]<0){
-        yearsm[i]=yearsm[i]-1
-        monthsm[i]=12+monthsm[i]
-    }
-    
-    // if (yearsm[i]===NaN){
-    //     yearsm[i]=0
-    // }
-    // if (monthsm[i]===NaN){
-    //     monthsm[i]=0
-    // }
-    // if (daysm[i]===NaN){
-    //     daysm[i]=0
-    // }
      
-    
-    
-
- 
-        pm[i].textContent=`${daysm[i]} дн ${monthsm[i]} міс ${yearsm[i]} р`
+            pm[i].textContent=`${daysm[i]} дн ${monthsm[i]} міс ${yearsm[i]} р`
+            }
+        }
+        
+        for (let b = 0; b < inputs1.length; b++) {
+            days=days+daysm[b]
+            if (days>29) {
+                days=days-30
+                months=months+1
+            }
+            months=months+monthsm[b]
+            if (months>11) {
+                years=years+1
+                months=0
+            }
+            years=years+yearsm[b]
+            
+            suma.textContent=`${days} дн ${months} міс ${years} р`
+            
         }
     }
-    
-    for (let b = 0; b < inputs1.length; b++) {
-        days=days+daysm[b]
-        if (days>29) {
-            days=days-30
-            months=months+1
-        }
-        months=months+monthsm[b]
-        if (months>11) {
-            years=years+1
-            months=0
-        }
-        years=years+yearsm[b]
-        
-        suma.textContent=`${days} дн ${months} міс ${years} р`
-        
+    else {
+        let inv3 = datas.value.split('.').map(Number);
+        days=inv3[0]
+        months=inv3[1]
+        years=inv3[2]
     }
-    prom=Math.round((years*inpdn.value)+(inpdn.value/12*months)+(inpdn.value/12/30*days))
+    prom=Math.round((years*inpdn.value)+(inpdn.value/misyear.value*months)+(inpdn.value/misyear.value/30*days))
     result.textContent=prom-inpvur.value
-    console.log(prom)
+    
+    zar.textContent=prom
     // console.log(inv1, inv2, years)
     // console.log(inv2[3],inv1[3])
     

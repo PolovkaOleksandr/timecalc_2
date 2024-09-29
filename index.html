@@ -27,6 +27,9 @@
         .flex{
             display: flex;
         }
+        .mr{
+            margin-right: 15px;
+        }
     </style>
 </head>
 <body>
@@ -90,21 +93,30 @@
 
 <button class="btn">Порахувати</button>
 <div class="flex">
-    <p>кільк. днів відпустки на рік</p>
+    <p>кільк. днів відпустки на рік  </p>
     <input class="inpdn" type="text">
 </div>
 <div class="flex">
-    <p>кільк. зароблених днів відпустки</p>
+    <p class="mr">кільк. зароблених днів відпустки </p>
     <p class="zar"></p>
 </div>
 <div class="flex">
-    <p>кільк. використаних днів відпустки</p>
+    <p>кільк. використаних днів відпустки  </p>
     <input class="inpvur" type="text">
 </div>
 <div class="flex">
-    <p>кільк. днів для компенсації</p>
+    <p>кільк. місяців в році</p>
+    <input class="misyear" type="text">
+</div>
+<div class="flex">
+    <p class="mr">кільк. днів для компенсації  </p>
     <p class="result"></p>
 </div>
+<div>
+    <p>Самому вводити</p>
+    <input class="datas" type="text">
+</div>
+
     <script src="./index.js"></script>
 </body>
 </html>
