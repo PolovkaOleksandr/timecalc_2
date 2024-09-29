@@ -47,6 +47,8 @@ const p14=document.querySelector(".p14")
 const p15=document.querySelector(".p15")
 
 const suma=document.querySelector(".suma")
+const inpdn=document.querySelector(".inpdn")
+const inpvur=document.querySelector(".inpvur")
 
 const pm=[p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15,]
 
@@ -56,6 +58,7 @@ const btn=document.querySelector(".btn")
 btn.addEventListener("click", main)
 
 const p=document.querySelector(".final")
+const result=document.querySelector(".result")
 
 let years=0
 let months=0
@@ -109,6 +112,7 @@ let days13=0
 let days14=0
 let days15=0
 
+let prom=0
 
 yearsm=[years1, years2, years3, years4, years5, years6, years7, years8, years9, years10, years11, years12, years13, years14, years15]
 monthsm=[months1, months2, months3, months4, months5, months6, months7, months8, months9, months10, months11, months12, months13, months14, months15]
@@ -177,12 +181,14 @@ function main() {
         suma.textContent=`${days} дн ${months} міс ${years} р`
         
     }
-    
-    
+    prom=Math.round((years*inpdn.value)+(inpdn.value/12*months)+(inpdn.value/12/30*days))
+    result.textContent=prom-inpvur.value
+    console.log(prom)
     // console.log(inv1, inv2, years)
     // console.log(inv2[3],inv1[3])
-    console.log(inp19.value)
+    
     years=0
         months=0
         days=0
+        prom=0
 }

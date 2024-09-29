@@ -24,6 +24,9 @@
             height: 20px;
             width: 130px;
         }
+        .flex{
+            display: flex;
+        }
     </style>
 </head>
 <body>
@@ -86,8 +89,22 @@
 <p class="suma"></p>
 
 <button class="btn">Порахувати</button>
-
-
+<div class="flex">
+    <p>кільк. днів відпустки на рік</p>
+    <input class="inpdn" type="text">
+</div>
+<div class="flex">
+    <p>кільк. зароблених днів відпустки</p>
+    <p class="zar"></p>
+</div>
+<div class="flex">
+    <p>кільк. використаних днів відпустки</p>
+    <input class="inpvur" type="text">
+</div>
+<div class="flex">
+    <p>кільк. днів для компенсації</p>
+    <p class="result"></p>
+</div>
     <script src="./index.js"></script>
 </body>
 </html>
