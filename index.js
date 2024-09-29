@@ -130,17 +130,19 @@ function main() {
         else{
     let inv1 = inputs1[i].value.split('.').map(Number);
     let inv2 = inputs2[i].value.split('.').map(Number);
-    yearsm[i]=inv2[2]-inv1[2]
-    monthsm[i]=inv2[1]-inv1[1]
+    
+    
     daysm[i]=inv2[0]-inv1[0]
     if (daysm[i]<0){
         monthsm[i]=monthsm[i]-1
         daysm[i]=30+daysm[i]
     }
+    monthsm[i]=inv2[1]-inv1[1]
     if (monthsm[i]<0){
         yearsm[i]=years-1
         monthsm[i]=12+monthsm[i]
     }
+    yearsm[i]=inv2[2]-inv1[2]
     // if (yearsm[i]===NaN){
     //     yearsm[i]=0
     // }
