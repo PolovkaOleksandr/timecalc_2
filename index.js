@@ -124,7 +124,7 @@ function main() {
             daysm[i]=0
             monthsm[i]=0
             yearsm[i]=0
-            pm[i].textContent=`${daysm[i]} днів ${monthsm[i]} місяців ${yearsm[i]} років`
+            pm[i].textContent=`${daysm[i]} дн ${monthsm[i]} міс ${yearsm[i]} р`
             continue
         }
         else{
@@ -157,7 +157,7 @@ function main() {
     
 
  
-        pm[i].textContent=`${daysm[i]} днів ${monthsm[i]} місяців ${yearsm[i]} років`
+        pm[i].textContent=`${daysm[i]} дн ${monthsm[i]} міс ${yearsm[i]} р`
         }
     }
     
@@ -174,7 +174,7 @@ function main() {
         }
         years=years+yearsm[b]
         
-        suma.textContent=`${days} днів ${months} місяців ${years} років`
+        suma.textContent=`${days} дн ${months} міс ${years} р`
         
     }
     
