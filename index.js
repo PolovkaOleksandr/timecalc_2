@@ -30,7 +30,25 @@ const inp213=document.querySelector(".inp213")
 const inp214=document.querySelector(".inp214")
 const inp215=document.querySelector(".inp215")
 
+const p1=document.querySelector(".p1")
+const p2=document.querySelector(".p2")
+const p3=document.querySelector(".p3")
+const p4=document.querySelector(".p4")
+const p5=document.querySelector(".p5")
+const p6=document.querySelector(".p6")
+const p7=document.querySelector(".p7")
+const p8=document.querySelector(".p8")
+const p9=document.querySelector(".p9")
+const p10=document.querySelector(".p10")
+const p11=document.querySelector(".p11")
+const p12=document.querySelector(".p12")
+const p13=document.querySelector(".p13")
+const p14=document.querySelector(".p14")
+const p15=document.querySelector(".p15")
 
+const suma=document.querySelector(".suma")
+
+const pm=[p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15,]
 
 
 
@@ -43,16 +61,73 @@ let years=0
 let months=0
 let days=0
 
+let years1=0
+let years2=0
+let years3=0
+let years4=0
+let years5=0
+let years6=0
+let years7=0
+let years8=0
+let years9=0
+let years10=0
+let years11=0
+let years12=0
+let years13=0
+let years14=0
+let years15=0
+
+let months1=0
+let months2=0
+let months3=0
+let months4=0
+let months5=0
+let months6=0
+let months7=0
+let months8=0
+let months9=0
+let months10=0
+let months11=0
+let months12=0
+let months13=0
+let months14=0
+let months15=0
+
+let days1=0
+let days2=0
+let days3=0
+let days4=0
+let days5=0
+let days6=0
+let days7=0
+let days8=0
+let days9=0
+let days10=0
+let days11=0
+let days12=0
+let days13=0
+let days14=0
+let days15=0
+
+
 yearsm=[years1, years2, years3, years4, years5, years6, years7, years8, years9, years10, years11, years12, years13, years14, years15]
 monthsm=[months1, months2, months3, months4, months5, months6, months7, months8, months9, months10, months11, months12, months13, months14, months15]
 daysm=[days1, days2, days3, days4, days5, days6, days7, days8, days9, days10, days11, days12, days13, days14, days15,]
 
-const inputs1=[inp11, inp12, inp13, inp14, inp15, inp16, inp17, inp18, inp19, inp110, inp111, inp112, inp113, inp114, inp115]
-const inputs2=[inp21, inp22, inp23, inp24, inp25, inp26, inp27, inp28, inp29, inp210, inp211, inp212, inp213, inp214, inp215]
+
 
 function main() {
+    const inputs1=[inp11, inp12, inp13, inp14, inp15, inp16, inp17, inp18, inp19, inp110, inp111, inp112, inp113, inp114, inp115]
+    const inputs2=[inp21, inp22, inp23, inp24, inp25, inp26, inp27, inp28, inp29, inp210, inp211, inp212, inp213, inp214, inp215]
     for (let i = 0; i < inputs1.length; i++) {
-    
+        if (inputs1[i].value === "" || inputs2[i].value === "") {
+            daysm[i]=0
+            monthsm[i]=0
+            yearsm[i]=0
+            pm[i].textContent=`${daysm[i]} днів ${monthsm[i]} місяців ${yearsm[i]} років`
+            continue
+        }
+        else{
     let inv1 = inputs1[i].value.split('.').map(Number);
     let inv2 = inputs2[i].value.split('.').map(Number);
     yearsm[i]=inv2[2]-inv1[2]
@@ -66,12 +141,46 @@ function main() {
         yearsm[i]=years-1
         monthsm[i]=12+monthsm[i]
     }
+    // if (yearsm[i]===NaN){
+    //     yearsm[i]=0
+    // }
+    // if (monthsm[i]===NaN){
+    //     monthsm[i]=0
+    // }
+    // if (daysm[i]===NaN){
+    //     daysm[i]=0
+    // }
+     
+    
+    
+
+ 
+        pm[i].textContent=`${daysm[i]} днів ${monthsm[i]} місяців ${yearsm[i]} років`
+        }
+    }
+    
+    for (let b = 0; b < inputs1.length; b++) {
+        days=days+daysm[b]
+        if (days>29) {
+            days=days-30
+            months=months+1
+        }
+        months=months+monthsm[b]
+        if (months>11) {
+            years=years+1
+            months=0
+        }
+        years=years+yearsm[b]
+        
+        suma.textContent=`${days} днів ${months} місяців ${years} років`
         
     }
     
     
-    
-    p.textContent=`${days} днів ${months} місяців ${years} років`
-    console.log(inv1, inv2, years)
-    console.log(inv2[3],inv1[3])
+    // console.log(inv1, inv2, years)
+    // console.log(inv2[3],inv1[3])
+    console.log(inp19.value)
+    years=0
+        months=0
+        days=0
 }
