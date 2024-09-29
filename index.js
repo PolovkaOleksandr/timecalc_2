@@ -139,7 +139,7 @@ function main() {
     }
     monthsm[i]=inv2[1]-inv1[1]
     if (monthsm[i]<0){
-        yearsm[i]=years-1
+        yearsm[i]=years[i]-1
         monthsm[i]=12+monthsm[i]
     }
     yearsm[i]=inv2[2]-inv1[2]
