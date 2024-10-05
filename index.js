@@ -143,24 +143,25 @@ function main() {
         let inv1 = inputs1[i].value.split('.').map(Number);
         let inv2 = inputs2[i].value.split('.').map(Number);
         
-        yearsm[i]=inv2[2]-inv1[2]
+        
+
+        
+
         daysm[i]=inv2[0]-inv1[0]
         if (daysm[i]<0){
-            monthsm[i]=monthsm[i]-1
+            inv1[1]=inv1[1]+1
             daysm[i]=30+daysm[i]
         }
         monthsm[i]=inv2[1]-inv1[1]
         if (monthsm[i]<0){
-            yearsm[i]=yearsm[i]-1
-            monthsm[i]=11+monthsm[i]
+            inv1[2]=inv1[2]+1
+            monthsm[i]=12+monthsm[i]
+            
         }
+        yearsm[i]=inv2[2]-inv1[2]
         
-       
         
-        
-    
-     
-            pm[i].textContent=`${daysm[i]} дн ${monthsm[i]} міс ${yearsm[i]} р`
+        pm[i].textContent=`${daysm[i]} дн ${monthsm[i]} міс ${yearsm[i]} р`
             }
         }
         
